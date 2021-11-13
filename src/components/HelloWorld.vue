@@ -9,6 +9,14 @@
 <script>
 export default {
   name: 'HelloWorld',
+  mounted(){
+    let notification = new Notification('Hola, esta es una notifiación',{ body: 'Love u'})
+    window.navigator.vibrate(1000)
+    notification.onclick = function(event) {
+      event.preventDefault(); // Previene al buscador de mover el foco a la pestaña del Notification
+      window.open('http://www.mozilla.org', '_blank');
+    }
+  },
   methods: {
     notify () {
       // https://developer.mozilla.org/en-US/docs/Web/API/Notification/Notification#Parameters
